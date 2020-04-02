@@ -1,0 +1,81 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+
+//=================================
+//  GIVE FORGETINATOR TO PLAYER
+//=================================
+
+//REGION ADD_ITEM_TO_PLAYER_INVENTORY
+
+IF
+GameStarted(_Region, _)
+AND
+IsGameLevel(_Region, 1)
+AND
+NOT DB_CurrentLevel("TUT_Tutorial_A")
+AND
+NOT DB_CurrentLevel("FJ_FortJoy_Main")
+AND
+DB_IsPlayer(_Character)
+AND
+ItemTemplateIsInCharacterInventory(_Character, "S7_Forgetinator_ce72091d-f834-4db0-a20a-e2f43b52b1d4", 0)
+THEN
+DebugBreak("[S7:Forgetinator] --- Forgetinator added to player inventory.");
+ItemTemplateAddTo("S7_Forgetinator_ce72091d-f834-4db0-a20a-e2f43b52b1d4", _Character, 1);
+
+IF
+CharacterJoinedParty(_Character)
+AND
+DB_IsPlayer(_Character)
+AND
+ItemTemplateIsInCharacterInventory(_Character, "S7_Forgetinator_ce72091d-f834-4db0-a20a-e2f43b52b1d4", 0)
+THEN
+DebugBreak("[S7:Forgetinator] --- Forgetinator added to player inventory when someone joined the party.");
+ItemTemplateAddTo("S7_Forgetinator_ce72091d-f834-4db0-a20a-e2f43b52b1d4", _Character, 1);
+
+//END_REGION
+
+//=======================================
+//  REMOVE SKILLS FROM CHARACTER ON USE
+//=======================================
+
+//REGION FORGETINATOR_USE
+
+//  Player Character Uses Forgetinator
+IF
+CharacterUsedItemTemplate(_Character, "S7_Forgetinator_ce72091d-f834-4db0-a20a-e2f43b52b1d4", _)
+AND
+DB_IsPlayer(_Character)
+THEN
+ApplyStatus(_Character, "BLIND", 30.0, 1);
+NRD_CharacterIterateSkills(_Character, "S7_Forgetinator_PrepForRemoval");
+
+//  Remove skill that are marked-for-removal from the skillbar
+IF
+NRD_SkillIteratorEvent("S7_Forgetinator_PrepForRemoval", _Character, _SkillID, 1, 1)
+AND
+NOT NRD_StatGetInt(_SkillID, "Memory Cost", 0)
+AND
+NRD_SkillBarFindSkill(_Character, _SkillID, _SkillbarSlot)
+THEN
+DebugBreak(_SkillID);
+NRD_SkillBarClear(_Character, _SkillbarSlot);
+
+//  Remove skills from the character completely
+IF
+NRD_SkillIteratorEvent("S7_Forgetinator_PrepForRemoval", _Character, _SkillID, 1, 1)
+AND 
+NOT NRD_StatGetInt(_SkillID, "Memory Cost", 0)
+THEN
+DebugBreak(_SkillID);
+CharacterRemoveSkill(_Character, _SkillID);
+
+//END_REGION
+
+EXITSECTION
+
+ENDEXITSECTION
+ParentTargetEdge "S7__Forgetinator_Initializer"
