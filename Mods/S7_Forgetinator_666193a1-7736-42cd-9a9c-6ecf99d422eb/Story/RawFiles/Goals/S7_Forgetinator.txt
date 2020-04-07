@@ -4,6 +4,8 @@ INITSECTION
 
 KBSECTION
 
+//  >>>>> NOTE FROM THE AUTHOR : This is my first proper script. It looks like a mess. <<<<<
+
 //=================================
 //  GIVE FORGETINATOR TO PLAYER
 //=================================
@@ -22,6 +24,8 @@ AND
 DB_IsPlayer(_Character)
 AND
 ItemTemplateIsInCharacterInventory(_Character, "S7_Forgetinator_ce72091d-f834-4db0-a20a-e2f43b52b1d4", 0)
+AND
+ItemTemplateIsInCharacterInventory(_Character, "S7_Forgetinator_SafetyOFF_00c50d8a-39b9-49a3-a160-264191f72ddc", 0)
 THEN
 DebugBreak("[S7:Forgetinator] --- Forgetinator added to player inventory.");
 ItemTemplateAddTo("S7_Forgetinator_ce72091d-f834-4db0-a20a-e2f43b52b1d4", _Character, 1);
@@ -59,6 +63,24 @@ IF
 NRD_SkillIteratorEvent("S7_Forgetinator_PrepForRemoval", _Character, _SkillID, 1, 1)
 AND 
 NOT NRD_StatGetInt(_SkillID, "Memory Cost", 0)
+THEN
+DebugBreak(_SkillID);
+CharacterRemoveSkill(_Character, _SkillID);
+
+// Remove all inactive skills (including innate skills) if the player uses the Forgetinator - Safety OFF
+
+IF
+CharacterUsedItemTemplate(_Character, "S7_Forgetinator_SafetyOFF_00c50d8a-39b9-49a3-a160-264191f72ddc", _)
+AND
+DB_IsPlayer(_Character)
+THEN
+ApplyStatus(_Character, "BLIND", 30.0, 1);
+NRD_CharacterIterateSkills(_Character, "S7_Forgetinator_PrepForRemoval_SafetyOFF");
+
+IF
+NRD_SkillIteratorEvent("S7_Forgetinator_PrepForRemoval_SafetyOFF", _Character, _SkillID, _, _)
+AND
+NOT NRD_SkillBarFindSkill(_Character, _SkillID, _)
 THEN
 DebugBreak(_SkillID);
 CharacterRemoveSkill(_Character, _SkillID);
