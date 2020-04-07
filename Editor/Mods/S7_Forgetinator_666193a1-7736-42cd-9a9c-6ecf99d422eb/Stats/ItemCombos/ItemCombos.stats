@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stats stat_object_definition_id="21465eb6-ebaf-4455-9f29-369759e000a9">
+  <stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="S7_Forgetinator_ForgetinatorSafetyOFF" />
+        <field name="RecipeCategory" type="EnumerationStatObjectFieldDefinition" value="7" enumeration_type_name="RecipeCategory" />
+        <field name="Type 1" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="IngredientType" />
+        <field name="Object 1" type="StringStatObjectFieldDefinition" value="S7_Forgetinator_Gen_Forgetinator" />
+        <field name="Transform 1" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="IngredientTransformType" />
+        <field name="Type 2" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="IngredientType" />
+        <field name="Object 2" type="StringStatObjectFieldDefinition" value="TOOL_Tong_A" />
+        <field name="Transform 2" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="IngredientTransformType" />
+        <field name="Result 1" type="StringStatObjectFieldDefinition" value="S7_Forgetinator_Gen_ForgetinatorSafetyOFF" />
+        <field name="ResultAmount 1" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="PreviewStatsID" type="StringStatObjectFieldDefinition" value="S7_Forgetinator_Gen_Forgetinator" />
+        <field name="PreviewIcon" type="StringStatObjectFieldDefinition" value="Item_WPN_Wand_B_Shadow" />
+        <field name="PreviewTooltip" type="TranslatedStringStatObjectFieldDefinition" value="Forgetinator - Safety OFF" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="S7_Forgetinator_Forgetinator" />
+        <field name="RecipeCategory" type="EnumerationStatObjectFieldDefinition" value="7" enumeration_type_name="RecipeCategory" />
+        <field name="Type 1" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="IngredientType" />
+        <field name="Object 1" type="StringStatObjectFieldDefinition" value="S7_Forgetinator_Gen_ForgetinatorSafetyOFF" />
+        <field name="Transform 1" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="IngredientTransformType" />
+        <field name="Type 2" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="IngredientType" />
+        <field name="Object 2" type="StringStatObjectFieldDefinition" value="TOOL_Tong_A" />
+        <field name="Transform 2" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="IngredientTransformType" />
+        <field name="ResultAmount 1" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Result 1" type="StringStatObjectFieldDefinition" value="S7_Forgetinator_Gen_Forgetinator" />
+        <field name="PreviewStatsID" type="StringStatObjectFieldDefinition" value="S7_Forgetinator_Gen_ForgetinatorSafetyOFF" />
+        <field name="PreviewIcon" type="StringStatObjectFieldDefinition" value="Item_DLC_Wand_White" />
+        <field name="PreviewTooltip" type="TranslatedStringStatObjectFieldDefinition" value="Forgetinator - Safety ON" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>
