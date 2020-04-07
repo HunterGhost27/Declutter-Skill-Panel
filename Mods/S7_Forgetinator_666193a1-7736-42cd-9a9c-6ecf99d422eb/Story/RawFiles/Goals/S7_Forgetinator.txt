@@ -26,16 +26,6 @@ THEN
 DebugBreak("[S7:Forgetinator] --- Forgetinator added to player inventory.");
 ItemTemplateAddTo("S7_Forgetinator_ce72091d-f834-4db0-a20a-e2f43b52b1d4", _Character, 1);
 
-IF
-CharacterJoinedParty(_Character)
-AND
-DB_IsPlayer(_Character)
-AND
-ItemTemplateIsInCharacterInventory(_Character, "S7_Forgetinator_ce72091d-f834-4db0-a20a-e2f43b52b1d4", 0)
-THEN
-DebugBreak("[S7:Forgetinator] --- Forgetinator added to player inventory when someone joined the party.");
-ItemTemplateAddTo("S7_Forgetinator_ce72091d-f834-4db0-a20a-e2f43b52b1d4", _Character, 1);
-
 //END_REGION
 
 //=======================================

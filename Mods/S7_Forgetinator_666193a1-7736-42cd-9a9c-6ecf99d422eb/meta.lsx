@@ -9,7 +9,7 @@
                     <children>
                         <node id="ModuleShortDesc">
                             <attribute id="Folder" value="DivinityOrigins_1301db3d-1f54-4e98-9be5-5094030916e4" type="30" />
-                            <attribute id="MD5" value="8c08a78e11b3c02215cdf0982d8c0981" type="23" />
+                            <attribute id="MD5" value="" type="23" />
                             <attribute id="Name" value="Divinity: Original Sin 2" type="22" />
                             <attribute id="UUID" value="1301db3d-1f54-4e98-9be5-5094030916e4" type="22" />
                             <attribute id="Version" value="372645092" type="4" />
@@ -19,7 +19,7 @@
                 <node id="ModuleInfo">
                     <attribute id="Author" value="Hunter-Ghost-27" type="30" />
                     <attribute id="CharacterCreationLevelName" value="" type="22" />
-                    <attribute id="Description" value="" type="30" />
+                    <attribute id="Description" value="Remove undesirable skills from your skill-panel. Are you playing with 15 class-mods that add several hundred new abilities? Do you find yourself repeatedly respeccing every hour trying to find the perfect build? You thought Flaming-Skin was super edgy but it turned out to be hot-garbage?, Not only were you scammed, it also has left a permanent mark in your spellbook to constantly remind you of your blunder?" type="30" />
                     <attribute id="DescriptionName" value="" handle="ls::TranslatedStringRepository::s_HandleUnknown" type="28" />
                     <attribute id="DisplayName" value="" handle="ls::TranslatedStringRepository::s_HandleUnknown" type="28" />
                     <attribute id="Folder" value="S7_Forgetinator_666193a1-7736-42cd-9a9c-6ecf99d422eb" type="30" />

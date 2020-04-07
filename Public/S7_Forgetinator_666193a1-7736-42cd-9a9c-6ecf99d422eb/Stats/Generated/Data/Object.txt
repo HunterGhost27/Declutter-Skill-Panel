@@ -1,0 +1,10 @@
+new entry "S7_Forgetinator_Gen_Forgetinator"
+type "Object"
+using "_Generics"
+data "RootTemplate" "ce72091d-f834-4db0-a20a-e2f43b52b1d4"
+data "ModifierType" "Item"
+data "Value" "2000"
+data "InventoryTab" "Misc"
+data "AddToBottomBar" "No"
+data "Unique" "1"
+
