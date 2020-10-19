@@ -2,9 +2,9 @@ Version 1
 SubGoalCombiner SGC_AND
 INITSECTION
 
-KBSECTION
-
 //  >>>>> NOTE FROM THE AUTHOR : This is my first proper script. It looks like a mess. <<<<<
+
+KBSECTION
 
 //=================================
 //  GIVE FORGETINATOR TO PLAYER

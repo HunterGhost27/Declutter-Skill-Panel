@@ -2,53 +2,29 @@ Version 1
 SubGoalCombiner SGC_AND
 INITSECTION
 
-S7_Forgetinator_Internal_CompleteIfStarted();
+//  Initializer Goal for Declutter Skill-Panel.
 
 KBSECTION
-
-//==============================
-//     PROCEDURE DEFINITIONS
-//==============================
-
-//REGION S7_FORGETINATOR_PROC_DEF
-
-PROC
-S7_Forgetinator_Internal_CompleteIfStarted()
-AND
-DB_StoryStarted(_)
-THEN
-DebugBreak("[S7:Forgetinator] --- Story has already been initialized. Initializing mod.");
-S7_Forgetinator_Internal_Start();
-
-PROC
-S7_Forgetinator_Internal_Start()
-THEN
-DebugBreak("[S7:Forgetinator] --- Parent Goal Initialized.");
-GoalCompleted;
-
-//END_REGION
 
 //==============================
 //      MOD INITIALIZATION
 //==============================
 
-//REGION S7_FORGETINATOR_INTERNAL_START 
-
+//  STARTING A NEW GAME
 IF
 GameEventSet("GAMEEVENT_GameStarted")
 THEN
-DebugBreak("[S7:Forgetinator] --- Mod added in new game");
-S7_Forgetinator_Internal_Start();
+NRD_DebugLog("[S7:Forgetinator] --- Parent Goal Initialized. Mod added to a new game.");
+GoalCompleted;
 
+//  LOADING AN EXISTING SAVE-GAME
 IF
 SavegameLoaded(_, _, _, _)
 AND
 DB_StoryStarted(_)
 THEN
-DebugBreak("[S7:Forgetinator] --- Mod added to existing save.");
-S7_Forgetinator_Internal_Start();
-
-//END_REGION
+NRD_DebugLog("[S7:Forgetinator] --- Parent Goal Initialized. Story was already initialized. Mod added to an existing save.");
+GoalCompleted;
 
 EXITSECTION
 

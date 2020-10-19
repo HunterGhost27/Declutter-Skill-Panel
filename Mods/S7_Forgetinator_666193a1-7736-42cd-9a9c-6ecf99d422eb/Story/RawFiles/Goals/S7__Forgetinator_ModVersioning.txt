@@ -1,0 +1,23 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+//  ==================================    MOD VERSION (NAME, CURRENT VERSION)    ======================================
+DB_S7_ModIdentifier("S7_Forgetinator", "1.1.0.0"); //  When changing Mod-Version, replace all occurrences. (Ctrl + F2) 
+//  ===================================================================================================================
+
+KBSECTION
+
+IF
+SavegameLoaded(_, _, _, _)                                          //  Save-game loaded
+AND
+NOT DB_S7_ModIdentifier("S7_Forgetinator", "1.1.0.0")               //  Latest Version does not exist
+THEN
+SysClear("DB_S7_ModIdentifier", 2);                                 //  Remove all previous facts from DB
+DB_S7_ModIdentifier("S7_Forgetinator", "1.1.0.0");                  //  Add the latest version in the DB
+NRD_DebugLog("[S7:Forgetinator] Mod Updated to Version: 1.1.0.0");  //  Print to debug console
+
+EXITSECTION
+
+ENDEXITSECTION
+ParentTargetEdge "S7__Forgetinator_Initializer"

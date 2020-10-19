@@ -1,7 +1,9 @@
-Declutter Skill-Panel Changelog
+# Declutter Skill-Panel Changelog
+
 =======
-# 1.0.0.0 ---
+
+## 1.0.0.0 ---
+
 ### NEW
+
 * Initial Release
-
-
