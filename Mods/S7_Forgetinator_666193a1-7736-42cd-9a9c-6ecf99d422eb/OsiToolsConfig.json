@@ -1,5 +1,6 @@
 {
     "RequiredExtensionVersion": 52,
+    "ModTable": "S7_Forgetinator",
     "FeatureFlags": [
         "OsirisExtensions",
         "Lua"
