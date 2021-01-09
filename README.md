@@ -1,4 +1,4 @@
-# **Declutter Skill-Panel**
+# Declutter Skill-Panel
 
 ## Divinity Original Sin 2: Definitive Edition
 
@@ -9,32 +9,34 @@ Chances are, your skill-panel is FUBAR and needs some _declutterin'_. Well, I've
 
 ## Releases
 
-* [x] [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=2049313850)
-* [ ] ~~[Nexus]()~~
-* [x] [Github](https://github.com/HunterGhost27/Declutter-Skill-Panel)
+* ***[Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=2049313850)***
+* ***[Github](https://github.com/HunterGhost27/Declutter-Skill-Panel)***
 
 ## Requirements
 
-* [Norbyte's Script Extender](https://github.com/Norbyte/ositools)
-
-## Background
-
-I don't like respeccing much and I don't use class-mods. But even then the 2nd Law of Thermodynamics dictates that my skill-panel eventually ends up in a state of ungodly disarray. I also don't put attribute points into memory (prefer scrolls) and think it's as bad as putting points in constitution. So I end up switching skills a lot in preparation of upcomming battles (though I do enjoy managing limited-use items and pre-battle planning as a game-mechanic). This forces me to look at the utter mess that the skill-panel becomes as the game progresses. This problem is accentuated by skills like Haste and Teleport that are extremely useful to have but become so abundantly available as scrolls that you don't ever need to slot them post-driftwood. But they sit there in your skill-panel clogging up visual space. This mod will let you selectively remove those skills from your character and tidy up the skill-panel.
+* ***[Norbyte's Script Extender](https://github.com/Norbyte/ositools)***
 
 ## Features
 
-The mod adds a unique artefact known as the ***"Forgetinator"*** that is able to selectively purge memories from the user. You can find it in one of the torture-rooms in Fort Joy Dungeons. It will also be added to your inventory automatically if you never picked it up, dropped it somewhere or have otherwise moved-on from Fort Joy.
+The mod adds a unique artefact known as the ***"Forgetinator"*** that is able to selectively purge memories from the user. You can find it in one of the _torture-rooms_ in **Fort Joy Dungeons**. It will also be added to your inventory automatically if you never picked it up, dropped it somewhere or have otherwise moved-on from Fort Joy.
 
 How to use this mod:
 
-1. Save your game before you go purging any skills.
-2. Open your skill-panel (default: K) and hit "Reset-All" or manually remove all memorized skills. (you can leave the ones you wish to remove memorized).
-3. Memorize only the skills that you wish to permanently remove from the character. Double-check.
-4. Use the Forgetinator from your inventory. BANG! Just fire and forget, literally.
+1. **Save** your game before you go purging any skills.
+2. Open your _skill-panel_ (default: K) and hit _"Reset-All"_ or manually remove all memorized skills. (you can leave the ones you wish to remove memorized).
+3. Memorize only the skills that you wish to **remove** from the character. Double-check.
+4. **Use** the Forgetinator from your inventory. BANG! Just fire and forget, literally.
 5. Make sure you don't regret what you've done. Reload if you do.
 
 Works on mod-added skills too. Purge 'em ALL!!!
-Innate skills and skills granted by items are not removed since that would be stupid. i.e. You cannot reacquire them.
+
+### Alternate Fire-Mode
+
+_Combine_ the _Forgetinator_ with _Tongs_ to toggle safety features. Once turned **off**, the Forgetinator will remove every skill that is *NOT on any of your skillbars(/hotbars)*. This includes _innate skills_, skills granted by _items_ (All-In, Shield-Up, Purge), skills granted by _statuses_(Fly, Medusa-Head) etc. If it's not on your hotbar, its a GONER.
+
+**Exercise Extreme Caution**: Removing something like _Source Vampirism_ or _Spirit Vision_ will probably brick your game. I'll advise you to **save** your game before you remove skills and turn safeties ON again (by combining it with a Tong) after you're done.
+
+**NOTE**: The mod only removes skills from the character. It does not prevent the character from re-learning those skills - i.e. if a mod adds skills using scripts, those skills will probably reappear the next time you load your save. Same with skills granted by items. The skills are removed from the character and not the items itself, they'll be added to your character again when you next equip them or reload the save with them equipped.
 
 ## Thanks and Credit
 
