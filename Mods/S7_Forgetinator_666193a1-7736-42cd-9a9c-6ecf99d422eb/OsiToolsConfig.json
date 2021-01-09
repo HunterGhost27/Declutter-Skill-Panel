@@ -1,6 +1,7 @@
 {
-    "RequiredExtensionVersion": 42,
+    "RequiredExtensionVersion": 52,
     "FeatureFlags": [
-        "OsirisExtensions"
+        "OsirisExtensions",
+        "Lua"
     ]
 }
