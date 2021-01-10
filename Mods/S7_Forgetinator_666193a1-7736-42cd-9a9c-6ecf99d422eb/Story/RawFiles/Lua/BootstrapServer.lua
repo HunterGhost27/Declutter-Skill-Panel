@@ -3,28 +3,40 @@
 --  =======
 
 Ext.Require('Auxiliary.lua')
-Ext.Require('Shared/ConsoleCommander.lua')
 
 --  ===========================
 --  GIVE FORGETINATOR TO PLAYER
 --  ===========================
 
-local function AddForgetinator()
+function AddForgetinator()
     if not Ext.OsirisIsCallable() then return end
 
+    local player = Osi.CharacterGetHostCharacter()
+    local check = math.max(Osi.ItemTemplateIsInPartyInventory(player, ForgetinatorTemplate, 1), Osi.ItemTemplateIsInPartyInventory(player, ForgetinatorSafetyOffTemplate, 1))
+    if check == 0 then
+        Osi.ItemTemplateAddTo(ForgetinatorTemplate, player, 1, 1)
+        Debug:FPrint("Forgetinator added to host-character's inventory")
+    end
+end
+
+ConsoleCommander:Register({
+    ['Name'] = "AddForgetinator",
+    ['Description'] = "Adds Forgetinator to Host-Character's Inventory",
+    ['Context'] = "Server",
+    ['Action'] = AddForgetinator
+})
+
+Ext.RegisterOsirisListener('SavegameLoaded', 4, 'after', function ()
     local exceptions = {
         ["TUT_Tutorial_A"] = true,
         ["FJ_FortJoy_Main"] = true
     }
 
-    local player = Osi.CharacterGetHostCharacter()
-    local check = math.max(Osi.ItemTemplateIsInPartyInventory(player, ForgetinatorTemplate, 1), Osi.ItemTemplateIsInPartyInventory(player, ForgetinatorSafetyOffTemplate, 1))
-    if check == 0 then Osi.ItemTemplateAddTo(ForgetinatorTemplate, player, 1, 1) end
-end
+    local host = Osi.CharacterGetHostCharacter()
+    local region = Osi.GetRegion(host)
 
---  =====================================================================
-Ext.RegisterOsirisListener('SavegameLoaded', 4, 'after', AddForgetinator)
---  =====================================================================
+    if not exceptions[region] and Osi.IsGameLevel(region) then AddForgetinator() end
+end)
 
 --  ===================
 --  CHARACTER USED ITEM
