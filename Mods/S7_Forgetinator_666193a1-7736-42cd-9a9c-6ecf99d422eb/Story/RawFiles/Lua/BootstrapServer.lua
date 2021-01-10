@@ -59,3 +59,11 @@ Ext.RegisterOsirisListener('CharacterUsedItemTemplate', 3, 'after', function (ch
     end
     Osi.ApplyStatus(character, "BLIND", 30.0, 1)
 end)
+
+--  ====================
+--  CONTEXT MENU HANDLER
+--  ====================
+
+if Ext.IsModLoaded("b66d56c6-12f9-4abc-844f-0c30b89d32e4") then -- UI Components Library Loaded
+    Ext.Require('Server/ContextMenu.lua')
+end

@@ -46,5 +46,5 @@ SaveFile("S7Central.json", CENTRAL)
 --  TEMPLATES
 --  =========
 
-ForgetinatorTemplate = "S7_Forgetinator_ce72091d-f834-4db0-a20a-e2f43b52b1d4"
-ForgetinatorSafetyOffTemplate = "S7_Forgetinator_SafetyOFF_00c50d8a-39b9-49a3-a160-264191f72ddc"
+ForgetinatorTemplate = "ce72091d-f834-4db0-a20a-e2f43b52b1d4"
+ForgetinatorSafetyOffTemplate = "00c50d8a-39b9-49a3-a160-264191f72ddc"

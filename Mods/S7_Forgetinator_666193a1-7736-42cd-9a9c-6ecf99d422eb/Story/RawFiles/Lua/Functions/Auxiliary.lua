@@ -1,7 +1,7 @@
-------------------------------------
-MODINFO = Ext.GetModInfo('>>UUID<<')
-IDENTIFIER = '>>IDENTIFIER<<'
-------------------------------------
+---------------------------------------
+-- MODINFO = Ext.GetModInfo('>>UUID<<')
+-- IDENTIFIER = '>>IDENTIFIER<<'
+---------------------------------------
 
 --  ===================
 --  AUXILIARY FUNCTIONS
