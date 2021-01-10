@@ -3,12 +3,15 @@
 --  =======
 
 Ext.Require('Auxiliary.lua')
+Ext.Require('Shared/ConsoleCommander.lua')
 
 --  ===========================
 --  GIVE FORGETINATOR TO PLAYER
 --  ===========================
 
-Ext.RegisterOsirisListener('SavegameLoaded', 4, 'after', function ()
+local function AddForgetinator()
+    if not Ext.OsirisIsCallable() then return end
+
     local exceptions = {
         ["TUT_Tutorial_A"] = true,
         ["FJ_FortJoy_Main"] = true
@@ -17,7 +20,11 @@ Ext.RegisterOsirisListener('SavegameLoaded', 4, 'after', function ()
     local player = Osi.CharacterGetHostCharacter()
     local check = math.max(Osi.ItemTemplateIsInPartyInventory(player, ForgetinatorTemplate, 1), Osi.ItemTemplateIsInPartyInventory(player, ForgetinatorSafetyOffTemplate, 1))
     if check == 0 then Osi.ItemTemplateAddTo(ForgetinatorTemplate, player, 1, 1) end
-end)
+end
+
+--  =====================================================================
+Ext.RegisterOsirisListener('SavegameLoaded', 4, 'after', AddForgetinator)
+--  =====================================================================
 
 --  ===================
 --  CHARACTER USED ITEM
