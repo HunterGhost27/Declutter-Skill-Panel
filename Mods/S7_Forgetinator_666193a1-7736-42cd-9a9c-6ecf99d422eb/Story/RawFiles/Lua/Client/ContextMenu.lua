@@ -9,7 +9,7 @@ UCL.ContextMenu:Register({
         {
             ['actionID'] = 27301,
             ['clickSound'] = true,
-            ['text'] = Color:Red("Turn Safties OFF"),
+            ['text'] = Color:Red("Turn Safeties OFF"),
             ['isDisabled'] = false,
             ['isLegal'] = true
         }
@@ -18,7 +18,7 @@ UCL.ContextMenu:Register({
         {
             ['actionID'] = 27302,
             ['clickSound'] = true,
-            ['text'] = Color:Green("Turn Safties ON"),
+            ['text'] = Color:Green("Turn Safeties ON"),
             ['isDisabled'] = false,
             ['isLegal'] = true
         }
