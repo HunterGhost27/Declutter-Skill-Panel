@@ -39,24 +39,50 @@ Ext.RegisterOsirisListener('SavegameLoaded', 4, 'after', function ()
 end)
 
 --  ===================
+--  TOGGLE FORGETINATOR
+--  ===================
+
+ConsoleCommander:Register({
+    ['Name'] = "ToggleForgetinator",
+    ['Description'] = "Toggles Forgetinator's Fire-Mode",
+    ['Context'] = "Server",
+    ['Action'] = function ()
+        local player = Osi.CharacterGetHostCharacter()
+        if Osi.ItemTemplateIsInCharacterInventory(player, ForgetinatorTemplate) > 0 then
+            Osi.ItemTemplateRemoveFromUser(ForgetinatorTemplate, player, 1)
+            Osi.ItemTemplateAddTo(ForgetinatorSafetyOffTemplate, player, 1, 1)
+        elseif Osi.ItemTemplateIsInCharacterInventory(player, ForgetinatorSafetyOffTemplate) > 0 then
+            Osi.ItemTemplateRemoveFromUser(ForgetinatorSafetyOffTemplate, player, 1)
+            Osi.ItemTemplateAddTo(ForgetinatorTemplate, player, 1, 1)
+        end
+    end
+})
+
+--  ===================
 --  CHARACTER USED ITEM
 --  ===================
 
 Ext.RegisterOsirisListener('CharacterUsedItemTemplate', 3, 'after', function (character, itemTemplate)
     if not Osi.CharacterIsPlayer(character) then return end
+    local _, _, itemTemplate = itemTemplate:find(".*_(.-)$")
     if itemTemplate ~= ForgetinatorTemplate and itemTemplate ~= ForgetinatorSafetyOffTemplate then return end
 
     local char = Ext.GetCharacter(character)
-    for i, skill in pairs(char:GetSkills()) do
-        local memCost = Ext.StatGetAttribute(skill, "Memory Cost")
-        if memCost ~= 0 then
-            if itemTemplate == ForgetinatorTemplate then
-                if char:GetSkillInfo(skill).IsActivated then Osi.CharacterRemoveSkill(character, skill) end
-            elseif itemTemplate == ForgetinatorSafetyOffTemplate then
-                if not char:GetSkillInfo(skill).IsActivated then Osi.CharacterRemoveSkill(character, skill) end
+    for _, skill in pairs(char:GetSkills()) do
+        local slot = Osi.NRD_SkillbarFindSkill(character, skill)
+        if itemTemplate == ForgetinatorTemplate then
+            local memCost = Ext.StatGetAttribute(skill, "Memory Cost")
+            if memCost ~= 0 then
+                if char:GetSkillInfo(skill).IsActivated then
+                    Osi.CharacterRemoveSkill(character, skill)
+                    Osi.NRD_SkillBarClear(character, slot)
+                end
             end
+        elseif itemTemplate == ForgetinatorSafetyOffTemplate then
+            if not slot then Osi.CharacterRemoveSkill(character, skill) end
         end
     end
+    Osi.PlayEffect(character, "RS3_FX_Skills_Divine_BlindingRadiance_Cast_Root_01")
     Osi.ApplyStatus(character, "BLIND", 30.0, 1)
 end)
 
