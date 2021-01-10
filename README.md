@@ -40,7 +40,7 @@ _Combine_ the _Forgetinator_ with _Tongs_ to toggle safety features. Once turned
 
 ### UI-Components-Library Integration
 
-If you have the **UI-Components-Library**, you can toggle fire-modes by simply *right-clicking* and selecting the *context-menu option*.
+If you have the **[UI-Components-Library](https://github.com/HunterGhost27/UI-Components-Library)**, you can toggle fire-modes by simply *right-clicking* and selecting the *context-menu option*.
 
 ## Thanks and Credit
 
