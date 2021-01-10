@@ -4,7 +4,7 @@
 
 ----------
 
-Remove undesirable skills from your skill-panel. Are you playing with 15 class-mods that add several hundred new abilities? Do you find yourself repeatedly respeccing every hour trying to find the perfect build? You thought Flaming-Skin was super edgy but it turned out to be hot-garbage?, Not only were you scammed, it also has left a permanent mark in your spellbook to constantly remind you of your blunder?
+**Remove** undesirable skills from your skill-panel. Are you playing with 15 class-mods that add several hundred new abilities? Do you find yourself repeatedly respeccing every hour trying to find the perfect build? You thought Flaming-Skin was super edgy but it turned out to be hot-garbage?, Not only were you scammed, it also has left a permanent mark in your spellbook to constantly remind you of your blunder?
 Chances are, your skill-panel is FUBAR and needs some _declutterin'_. Well, I've got just what you need.
 
 ## Releases
@@ -37,6 +37,10 @@ _Combine_ the _Forgetinator_ with _Tongs_ to toggle safety features. Once turned
 **Exercise Extreme Caution**: Removing something like _Source Vampirism_ or _Spirit Vision_ will probably brick your game. I'll advise you to **save** your game before you remove skills and turn safeties ON again (by combining it with a Tong) after you're done.
 
 **NOTE**: The mod only removes skills from the character. It does not prevent the character from re-learning those skills - i.e. if a mod adds skills using scripts, those skills will probably reappear the next time you load your save. Same with skills granted by items. The skills are removed from the character and not the items itself, they'll be added to your character again when you next equip them or reload the save with them equipped.
+
+### UI-Components-Library Integration
+
+If you have the **UI-Components-Library**, you can toggle fire-modes by simply *right-clicking* and selecting the *context-menu option*.
 
 ## Thanks and Credit
 
