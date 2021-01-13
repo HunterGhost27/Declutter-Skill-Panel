@@ -4,12 +4,16 @@
 
 UserInformation = {
     ['Host'] = {},
-    ['Clients'] = {}
+    ['Clients'] = {},
+    ['isProcessing'] = false
 }
 
 ---ReSynchronizes UserInformation Object
 function UserInformation:ReSync()
     if Ext.IsClient() and not Ext.OsirisIsCallable() then Debug:Warn("Cannot ReSync UserInformation. Osiris Inaccessible") return end
+    if self.isProcessing then return end
+
+    self.isProcessing = true
 
     --  HOST CHARACTER
     --  ==============
@@ -25,7 +29,8 @@ function UserInformation:ReSync()
     --  =================
 
     local tempUsers = {}
-    for _, player in pairs(Osi.DB_IsPlayer:Get(nil)[1]) do tempUsers[#tempUsers+1] = Osi.CharacterGetReservedUserID(player) end
+    local db = Osi.DB_IsPlayer:Get(nil)[1] or {}
+    for _, player in pairs(db) do tempUsers[#tempUsers+1] = Osi.CharacterGetReservedUserID(player) end
 
     for _, user in pairs(tempUsers) do
         local profileID = Osi.GetUserProfileID(user)
@@ -38,6 +43,8 @@ function UserInformation:ReSync()
         _, self.Clients.profileID.DisplayName = Osi.CharacterGetDisplayName(self.Clients.profileID.CurrentCharacter)
         Ext.PostMessageToUser(user, 'S7_UserInformationSync', Ext.JsonStringify(self.Clients.profileID))
     end
+
+    self.isProcessing = false
 end
 
 Ext.RegisterNetListener('S7_UserInformationSync', function (channel, payload)
