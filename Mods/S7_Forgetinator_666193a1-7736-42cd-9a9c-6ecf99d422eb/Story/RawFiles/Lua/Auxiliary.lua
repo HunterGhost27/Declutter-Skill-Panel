@@ -8,13 +8,9 @@ IDENTIFIER = 'S7_Forgetinator'
 ---@field ModSettings table
 MODINFO = Ext.GetModInfo('666193a1-7736-42cd-9a9c-6ecf99d422eb')
 
-DefaultSettings = {}
-
-PersistentVars = {}
-
---  ========  AUX FUNCTIONS  =========
-Ext.Require("Functions/Auxiliary.lua")
---  ==================================
+--  ========  AUX FUNCTIONS  ========
+Ext.Require("AuxFunctions/Index.lua")
+--  =================================
 
 --==============================================================
 ----------------------------------------------------------------
