@@ -5,7 +5,7 @@
 
 Ext.RegisterListener('SessionLoaded', function ()
     UCL = Mods['S7_UI_Components_Library'] -- Import UI Components Library
-    UCL.ContextMenu:QuickRegister({
+    UCL.ContextMenu:Register({
         ["RootTemplate::" .. ForgetinatorTemplate] = {
             {
                 ['actionID'] = 27301,
